@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html style="height: 100%; font-family: 'Broadway';">
+<head>
+	<title> Password Generator </title>
+	<style>
+	input {
+		font-family: 'Broadway';
+	}
+	button {
+		border-width: 0px;
+		background-image: linear-gradient(to bottom right, blue, navy);
+		color: white;
+		font-family: 'Broadway';
+	}
+	</style>
+</head>
+<body style="height: 100%; background-color: aliceblue;">
+<center>
+<input id="firstname" type="text">
+<br>
+<br>
+<input id="lastname" type="text">
+<br>
+<br>
+<input id="dob" type="number">
+<br>
+<br>
+<button onclick="generate()">Generate Password</button>
+<br>
+<br>
+<p id="result">Results</p>
+<script type="text/javascript">
+const firstname = document.getElementById("firstname");
+const lastname = document.getElementById("lastname");
+const dob = document.getElementById("dob");
+var randomNumber = Math.floor(Math.random * 100);
+function generate() {
+	rndm_symbol = ["!", "@", "£", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "=",]
+	rndm_arrayNumber = 0;
+	rndm_arrayNumber = Math.floor((Math.random() * 14));
+	console.log(rndm_arrayNumber);
+	firstname_value = firstname.value;
+	lastname_value = lastname.value;
+	dob_value = Number(dob.value).toString();
+	password = firstname_value.substr(0,1) + lastname_value.substr(0,4) + rndm_symbol[rndm_arrayNumber] + dob_value;
+	console.log(password);
+	document.getElementById("result").innerHTML = password;
+}
+</script>
+</body>
+</html>
